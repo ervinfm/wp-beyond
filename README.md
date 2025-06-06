@@ -1,61 +1,161 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Website Profile - PT. Beyond Digital Nusantara
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![GitHub Repo](https://img.shields.io/badge/GitHub-wp--beyond-181717?style=for-the-badge&logo=github)](https://github.com/ervinfm/wp-beyond)
 
-## About Laravel
+Website profil perusahaan resmi untuk PT. Beyond Digital Nusantara. Proyek ini dibangun dengan tumpukan teknologi modern untuk menyajikan citra perusahaan yang profesional, dinamis, dan menarik secara visual.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Pratinjau Aplikasi](https://github.com/ervinfm/wp-beyond/assets/40413533/d163d420-7f28-48b0-8f92-563b7880d643)
+*(Saran: Anda dapat memperbarui screenshot di atas dengan versi final dari halaman utama)*
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Daftar Isi
+- [Tentang Proyek](#tentang-proyek)
+- [Tumpukan Teknologi](#tumpukan-teknologi)
+- [Fitur Utama](#fitur-utama)
+- [Prasyarat](#prasyarat)
+- [Panduan Instalasi & Setup](#panduan-instalasi--setup)
+- [Menjalankan Aplikasi](#menjalankan-aplikasi)
+- [Struktur Folder Penting](#struktur-folder-penting)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Tentang Proyek
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Website ini berfungsi sebagai pusat informasi digital untuk PT. Beyond Digital Nusantara. Tujuannya adalah untuk menyajikan profil, visi, misi, layanan, dan peluang kemitraan kepada klien, investor, dan calon mitra. Aplikasi ini menggunakan arsitektur monolitik modern dengan Laravel sebagai backend dan Vue.js yang di-render di sisi server melalui Inertia.js untuk pengalaman single-page application (SPA) yang mulus.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Tumpukan Teknologi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Proyek ini dibangun menggunakan teknologi pilihan yang berfokus pada performa dan pengalaman developer:
 
-### Premium Partners
+- **Backend:** [Laravel 11](https://laravel.com/)
+- **Frontend:** [Vue.js 3](https://vuejs.org/) (Composition API)
+- **Framework:** [Inertia.js](https://inertiajs.com/)
+- **Styling:** [Tailwind CSS 3](https://tailwindcss.com/)
+- **Bundler:** [Vite](https://vitejs.dev/)
+- **Ikonografi:** [Font Awesome](https://fontawesome.com/)
+- **Font:** [Plus Jakarta Sans (Variable)](https://fonts.google.com/specimen/Plus+Jakarta+Sans) via Fontsource
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Fitur Utama
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Halaman Profil Perusahaan:** Seksi dinamis dan premium yang menampilkan narasi dan data kunci perusahaan.
+- **Halaman "About Us" dengan Tabs:** Navigasi interaktif untuk menampilkan Visi & Misi, Tim, dan Sejarah Perusahaan.
+- **Portal Bisnis:** Halaman khusus dengan sidebar untuk audiens investor dan calon mitra.
+- **Layout Persisten:** Pengalaman navigasi yang mulus tanpa reload halaman penuh.
+- **Desain Responsif:** Tampilan yang optimal di perangkat desktop, tablet, dan mobile.
+- **Animasi Profesional:** Animasi masuk saat scroll dan interaksi halus untuk meningkatkan pengalaman pengguna.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Prasyarat
 
-## Security Vulnerabilities
+Sebelum memulai, pastikan Anda telah menginstal perangkat lunak berikut di mesin Anda:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHP >= 8.2
+- Composer 2.x
+- Node.js >= 18.x
+- NPM >= 9.x atau Yarn
+- Database (MySQL >= 8.0 / MariaDB / PostgreSQL)
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Panduan Instalasi & Setup
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda dari awal hingga akhir.
+
+**1. Clone Repositori**
+Buka terminal Anda dan clone repositori ini ke direktori lokal Anda.
+```bash
+git clone [https://github.com/ervinfm/wp-beyond.git](https://github.com/ervinfm/wp-beyond.git)
+cd wp-beyond
+```
+
+**2. Install Dependensi PHP**
+Gunakan Composer untuk menginstal semua package PHP yang dibutuhkan.
+```bash
+composer install
+```
+
+**3. Buat File `.env`**
+Salin file `.env.example` menjadi `.env`. File ini berisi semua konfigurasi lingkungan Anda.
+```bash
+cp .env.example .env
+```
+
+**4. Generate Kunci Aplikasi**
+Setiap aplikasi Laravel membutuhkan kunci enkripsi yang unik.
+```bash
+php artisan key:generate
+```
+
+**5. Konfigurasi Database**
+Buka file `.env` dan sesuaikan konfigurasi database berikut dengan pengaturan lokal Anda:
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=db_wp // sesuaikan dengan db_name anda
+DB_USERNAME=postgres // sesuaikan username anda
+DB_PASSWORD=postgres // sesuaikan password and
+```
+*Pastikan Anda sudah membuat database `db_wp` (atau nama lain) di Postgresql Anda.*
+
+**6. Jalankan Migrasi & Seeder**
+Perintah ini akan membuat semua tabel di database dan mengisinya dengan data awal yang relevan (seperti data tim, investasi, dll.) berkat seeder yang sudah disiapkan.
+```bash
+php artisan migrate --seed
+```
+
+**7. Buat Symbolic Link untuk Storage**
+Agar file di `storage/app/public` (seperti foto tim) dapat diakses dari web, jalankan perintah ini.
+```bash
+php artisan storage:link
+```
+
+**8. Install Dependensi JavaScript**
+Gunakan NPM (atau Yarn) untuk menginstal semua package frontend.
+```bash
+npm install
+```
+
+Setup selesai! Proyek Anda sekarang siap untuk dijalankan.
+
+---
+
+## Menjalankan Aplikasi
+
+Untuk pengembangan, Anda perlu menjalankan **dua proses** secara bersamaan di dua terminal terpisah.
+
+**1. Jalankan Vite Development Server**
+Proses ini akan meng-compile semua aset frontend (Vue, CSS) dan menyediakan hot-reloading.
+```bash
+npm run dev
+```
+
+**2. Jalankan Laravel Development Server**
+Proses ini akan menjalankan aplikasi backend Laravel.
+```bash
+php artisan serve
+```
+
+Setelah kedua proses berjalan, buka browser Anda dan kunjungi:
+**[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
+---
+
+## Struktur Folder Penting
+
+- **`app/Http/Controllers/Web/`**: Berisi semua controller yang menangani halaman untuk pengunjung umum.
+- **`resources/js/Pages/Web/`**: Berisi semua komponen halaman utama Vue (yang dirender oleh Inertia).
+- **`resources/js/Layouts/`**: Berisi komponen layout persisten (contoh: `WebLayout.vue`).
+- **`resources/js/Components/`**: Berisi komponen-komponen Vue yang dapat digunakan kembali di berbagai halaman.
+- **`routes/web.php`**: Tempat mendefinisikan semua route untuk aplikasi web.
+- **`database/seeders/`**: Berisi file seeder untuk mengisi data awal ke database.
+
+---
+
+© 2025 PT. Beyond Digital Nusantara. All Rights Reserved.
