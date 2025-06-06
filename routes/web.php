@@ -10,6 +10,10 @@ use App\Http\Controllers\Web\{
     BlogController,
     CareerController,
     InvestmentController,
+    ReportController,
+    EventController,
+    GlossaryController,
+    DeveloperHubController,
 };
 
 // Home Page
@@ -41,6 +45,15 @@ Route::get('/career/{slug}', [CareerController::class, 'show'])->name('career.sh
 Route::get('/investasi', [InvestmentController::class, 'index'])->name('investments.index');
 Route::get('/investasi/{investment:slug}', [InvestmentController::class, 'show'])->name('investments.show');
 
+Route::get('/resources/reports', [ReportController::class, 'index'])->name('reports.index');
+Route::get('/resources/reports/{report:slug}', [ReportController::class, 'show'])->name('reports.show');
 
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
+Route::get('/glossary', [GlossaryController::class, 'index'])->name('glossary.index');
 
+Route::get('/developers', [DeveloperHubController::class, 'index'])->name('developers.index');
+
+Route::get('/tes-403', function () {
+    abort(403, 'Akses Ditolak.');
+});

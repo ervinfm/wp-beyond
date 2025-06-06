@@ -45,7 +45,7 @@ const splideOptions = {
                     Artikel Kategori: <span class="text-yellow-500">{{ currentCategory.name }}</span>
                 </h1>
                 <h1 v-else class="text-1xl md:text-2xl lg:text-3xl font-extrabold text-yellow-500">
-                    Wawasan & Berita Terbaru
+                    Blog dan Artikel Teknologi
                 </h1>
                 <p class="mt-4 max-w-2xl mx-auto text-md">
                     Temukan artikel, studi kasus, dan tren terkini seputar teknologi dan bisnis dari tim ahli kami.

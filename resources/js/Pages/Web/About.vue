@@ -2,7 +2,6 @@
     import { Head } from '@inertiajs/vue3';
     import { ref } from 'vue';
 
-    import BannerSection from '@/Components/Web/About/BannerSection.vue';
     import CompanySection from '@/Components/Web/About/CompanySection.vue';
     import GoalsSection from '@/Components/Web/About/GoalsSection.vue';
     import TeamSection from '@/Components/Web/About/TeamSection.vue';
