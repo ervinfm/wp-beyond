@@ -16,9 +16,7 @@ import 'swiper/css/grid'; // Penting: Import styling untuk Grid
 import 'swiper/css/navigation'; // Import jika Anda menggunakan panah navigasi
 import 'swiper/css/pagination'; // Import jika Anda menggunakan pagination dots
 
-defineProps({
-    technologyLogos: Array,
-});
+import { technologyLogos } from '@/../js/_data/technologyLogos.js';
 
 // Daftarkan modul Swiper yang akan digunakan, termasuk Grid
 const modules = [Autoplay, Navigation, Pagination, Grid];
@@ -83,7 +81,7 @@ const modules = [Autoplay, Navigation, Pagination, Grid];
                             class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:scale-105 h-full"
                         >
                             <img
-                                :src="`/images/tech-icons/${tech.logo_path}`"
+                                :src="`${tech.logoUrl}`"
                                 :alt="tech.name"
                                 class="h-16 w-16 object-contain mb-3 hover:grayscale-0 transition-filter duration-300"
                             />
@@ -91,8 +89,7 @@ const modules = [Autoplay, Navigation, Pagination, Grid];
                         </div>
                     </swiper-slide>
                 </swiper>
-
-                </div>
+            </div>
         </div>
     </div>
 </template>

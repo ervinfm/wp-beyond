@@ -2,52 +2,29 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class Report extends Model
 {
     use HasFactory;
 
-    /**
-     * Atribut yang dapat diisi secara massal.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'title',
-        'slug',
-        'author',
-        'summary',
-        'cover_image',
-        'file_path',
-        'published_at',
-        'is_active',
+        'title', 'slug', 'author', 'summary', 'cover_image', 'file_path', 
+        'published_at', 'is_active', 'category', 'reading_time'
     ];
 
-    /**
-     * Atribut yang harus di-casting ke tipe data tertentu.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'published_at' => 'date',
         'is_active' => 'boolean',
     ];
 
     /**
-     * Boot the model.
-     * Otomatis membuat slug saat data dibuat atau diubah.
+     * Accessor untuk atribut cover_image.
+     * Secara otomatis mengubah path yang tersimpan di database menjadi URL lengkap.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
-    protected static function booted(): void
-    {
-        static::creating(function (Report $report) {
-            $report->slug = Str::slug($report->title);
-        });
-
-        static::updating(function (Report $report) {
-            $report->slug = Str::slug($report->title);
-        });
-    }
 }

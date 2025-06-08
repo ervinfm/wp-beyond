@@ -85,7 +85,7 @@
                 <div v-for="(member, index) in teamMembers" :key="index"
                     class="bg-white rounded-3xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate__animated animate__zoomIn"
                     :style="{ 'animation-delay': `${0.2 * index}s` }">
-                    <img :src="member.image" :alt="member.name" class="w-full h-64 object-cover object-top filter grayscale hover:grayscale-0 transition duration-300" />
+                    <img :src="member.image" :alt="member.name" class="w-full h-64 object-cover object-top filter hover:grayscale-0 transition duration-300" />
                     <div class="p-8 text-center">
                         <h3 class="text-md font-bold text-gray-900 mb-2">{{ member.name }}</h3>
                         <p class="text-sm text-yellow-600 font-semibold mb-4">{{ member.title }}</p>

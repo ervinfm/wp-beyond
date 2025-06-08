@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('cover_image')->nullable();
             $table->string('file_path'); // Path ke file PDF di storage
             $table->date('published_at');
+            $table->string('category')->after('slug')->default('Umum');
+            $table->unsignedTinyInteger('reading_time')->after('file_path')->default(5);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

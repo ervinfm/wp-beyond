@@ -22,7 +22,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Welcome" />
+    <Head title="Solusi Teknologi & Inovasi Digital" />
 
     <HeroSection />
     <OverviewSection />

@@ -4,21 +4,40 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product; // Pastikan model Product di-import
 use Inertia\Inertia;
+use App\Models\{
+    Product, ProductCategory,
+};
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request) // <-- Tambahkan Request $request
     {
-        // Ambil semua produk, atau yang terbaru lebih dulu jika diinginkan
-        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        // 1. Mulai query builder
+        $productsQuery = Product::query()->with(['category']); // Ganti category menjadi categories (plural)
 
+        // 2. Terapkan filter jika ada parameter 'category' di URL
+        if ($request->query('category')) {
+            $productsQuery->whereHas('category', function ($query) use ($request) {
+                $query->where('slug', $request->query('category'));
+            });
+        }
+        
+        // 3. Ambil hasil query dengan paginasi
+        //    Paginator Laravel otomatis akan menambahkan query string yang ada
+        $products = $productsQuery->latest()->paginate(8)->withQueryString();
+
+        // Ambil semua kategori untuk ditampilkan sebagai tombol filter
+        $categories = ProductCategory::orderBy('name', 'asc')->get();
+
+        // 4. Kirim data ke Vue
         return Inertia::render('Web/Products/Index', [
-            'products' => $products, // $products sekarang adalah objek Paginator
+            'products' => $products,
+            'productCategories' => $categories, // Ganti nama prop agar lebih jelas (plural)
+            'filters' => $request->only(['category']), // Kirim filter yang aktif ke Vue
         ]);
     }
 

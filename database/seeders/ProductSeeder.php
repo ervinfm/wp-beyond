@@ -6,6 +6,9 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Models\{
+    Product, ProductCategory,
+};
 
 class ProductSeeder extends Seeder
 {
@@ -16,7 +19,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->truncate();
 
         $products = [
             [
@@ -28,6 +30,7 @@ class ProductSeeder extends Seeder
                 'price' => 899000.00,    // Sebelumnya $59.99, perkiraan Rp 899.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 2,
                 'is_featured' => true,
             ],
             [
@@ -39,6 +42,7 @@ class ProductSeeder extends Seeder
                 'price' => 1499000.00,   // Sebelumnya $99.50, perkiraan Rp 1.499.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 6,
                 'is_featured' => true,
             ],
             [
@@ -50,6 +54,7 @@ class ProductSeeder extends Seeder
                 'price' => 3499000.00,  // Sebelumnya $199.00, perkiraan Rp 3.499.000/bulan (bisa lebih tinggi tergantung modul)
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 2,
                 'is_featured' => true,
             ],
             [
@@ -61,6 +66,7 @@ class ProductSeeder extends Seeder
                 'price' => 1099000.00,  // Sebelumnya $75.00, perkiraan Rp 1.099.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 1,
                 'is_featured' => false,
             ],
             [
@@ -72,6 +78,7 @@ class ProductSeeder extends Seeder
                 'price' => 1749000.00,  // Sebelumnya $120.00, perkiraan Rp 1.749.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 1,
                 'is_featured' => true,
             ],
             [
@@ -83,6 +90,7 @@ class ProductSeeder extends Seeder
                 'price' => 649000.00,   // Sebelumnya $45.00, perkiraan Rp 649.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 1,
                 'is_featured' => false,
             ],
             [
@@ -94,6 +102,7 @@ class ProductSeeder extends Seeder
                 'price' => 4990000.00,  // Sebelumnya $250.00, perkiraan Rp 4.990.000/bulan (bisa jauh lebih tinggi)
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 4,
                 'is_featured' => true,
             ],
             [
@@ -105,6 +114,7 @@ class ProductSeeder extends Seeder
                 'price' => 1275000.00,  // Sebelumnya $85.00, perkiraan Rp 1.275.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 5,
                 'is_featured' => false,
             ],
             [
@@ -116,6 +126,7 @@ class ProductSeeder extends Seeder
                 'price' => 949000.00,   // Sebelumnya $65.00, perkiraan Rp 949.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 1,
                 'is_featured' => true,
             ],
             [
@@ -127,6 +138,7 @@ class ProductSeeder extends Seeder
                 'price' => 449000.00,    // Sebelumnya $35.00, perkiraan Rp 449.000/bulan
                 'pricing_type' => 'subscription',
                 'subscription_interval' => 'monthly',
+                'product_category_id' => 3,
                 'is_featured' => false,
             ],
         ];
@@ -143,6 +155,7 @@ class ProductSeeder extends Seeder
                 'pricing_type' => $product['pricing_type'],
                 'subscription_interval' => $product['subscription_interval'],
                 'is_featured' => $product['is_featured'],
+                'product_category_id' => $product['product_category_id'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
@@ -159,6 +172,7 @@ class ProductSeeder extends Seeder
                 'price' => 1250000.00,    // Contoh harga sekali beli
                 'pricing_type' => 'one_time_purchase',
                 'subscription_interval' => null, // Tidak ada interval untuk sekali beli
+                'product_category_id' => 1,
                 'is_featured' => true,
             ],
             [
@@ -171,6 +185,7 @@ class ProductSeeder extends Seeder
                 'price' => 799000.00,     // Contoh harga sekali beli
                 'pricing_type' => 'one_time_purchase',
                 'subscription_interval' => null,
+                'product_category_id' => 1,
                 'is_featured' => true,
             ],
             [
@@ -183,6 +198,7 @@ class ProductSeeder extends Seeder
                 'price' => 550000.00,      // Contoh harga sekali beli
                 'pricing_type' => 'one_time_purchase',
                 'subscription_interval' => null,
+                'product_category_id' => 6,
                 'is_featured' => false,
             ],
         ];
@@ -199,6 +215,7 @@ class ProductSeeder extends Seeder
                 'pricing_type' => $oneTimePurchaseProduct['pricing_type'],
                 'subscription_interval' => $oneTimePurchaseProduct['subscription_interval'],
                 'is_featured' => $oneTimePurchaseProduct['is_featured'],
+                'product_category_id' => $oneTimePurchaseProduct['product_category_id'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

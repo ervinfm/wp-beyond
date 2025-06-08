@@ -39,14 +39,12 @@ class HomeController extends Controller
         $featuredPortfolio = Portfolio::latest()->take(4)->get();
         $testimonials = Testimonial::latest()->get();
         $latestPosts = Post::latest()->take(3)->get();
-        $techLogos = TechnologyLogo::all();
 
         return Inertia::render('Web/Home', [
             'featuredServices' => $featuredServices,
             'featuredProducts' => $featuredProducts,
             'featuredPortfolio' => $featuredPortfolio,
             'testimonials' => $testimonials,
-            'techLogos' => $techLogos,
             'latestPosts' => $latestPosts,
         ]);
     }

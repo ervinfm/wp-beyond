@@ -11,7 +11,7 @@ const staticNav = ref([
         title: 'Wawasan (Insights)',
         links: [
             { name: 'Blog & Artikel Industri', href: '/blog' },
-            { name: 'White Paper & Laporan', href: '/resources/reports' },
+            { name: 'Riset Develop Reports', href: '/resources/reports' },
             { name: 'Webinar & Acara', href: '/events' },
             { name: 'Glosarium Teknologi', href: '/glossary' },
             { name: 'Pusat Pengembang (Dev Hub)', href: '/developers' },

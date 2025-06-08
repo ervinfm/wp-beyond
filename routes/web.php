@@ -45,9 +45,14 @@ Route::get('/career/{slug}', [CareerController::class, 'show'])->name('career.sh
 Route::get('/investasi', [InvestmentController::class, 'index'])->name('investments.index');
 Route::get('/investasi/{investment:slug}', [InvestmentController::class, 'show'])->name('investments.show');
 
-Route::get('/resources/reports', [ReportController::class, 'index'])->name('reports.index');
-Route::get('/resources/reports/{report:slug}', [ReportController::class, 'show'])->name('reports.show');
-
+Route::controller(ReportController::class) // Menggunakan controller yang sama untuk semua route di grup ini
+    ->name('reports.') // Semua nama route akan diawali dengan 'reports.'
+    ->group(function () {
+        Route::get('/resources/reports', 'index')->name('index');
+        Route::get('/resources/reports/{report:slug}', 'show')->name('show');
+        Route::post('/reports/{report:slug}/download', 'handleDownload')->name('download');
+    });
+    
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
 Route::get('/glossary', [GlossaryController::class, 'index'])->name('glossary.index');

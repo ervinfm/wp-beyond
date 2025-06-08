@@ -1,12 +1,33 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { ref } from 'vue';
+import { Head, Link, router } from '@inertiajs/vue3'; // <-- Import router dari Inertia
+
 import BannerSection from '@/Components/Web/Product/BannerSection.vue';
-import ProductCard from '@/Components/Web/Product/ProductCard.vue'; // Import ProductCard
+import ProductCard from '@/Components/Web/Product/ProductCard.vue';
 import Pagination from '@/Components/Shared/Pagination.vue';
 
-defineProps({
-    products: Object, // Lebih spesifik menggunakan Array jika itu adalah array
+// 1. Sesuaikan props dengan yang dikirim dari controller
+const props = defineProps({
+    products: Object,
+    productCategories: Array, // <-- Ganti nama & tipe data
+    filters: Object, // <-- Prop baru untuk menampung filter aktif
 });
+
+// 2. State untuk tab yang aktif, diambil dari prop 'filters'
+const activeCategory = ref(props.filters.category || 'all');
+
+// 3. Fungsi untuk memfilter produk
+const filterByCategory = (slug) => {
+    activeCategory.value = slug; // Update state lokal untuk style aktif
+
+    router.get(route('products.index'), { // Ganti dengan nama route Anda jika berbeda
+        category: slug === 'all' ? null : slug, // Kirim slug sebagai query, atau null jika 'Semua'
+    }, {
+        preserveState: true, // Jaga state komponen (seperti input search)
+        replace: true, // Ganti history state agar tombol back berfungsi normal
+    });
+};
+
 </script>
 
 <template>
@@ -14,41 +35,57 @@ defineProps({
 
     <BannerSection />
 
-    <section class="py-5 md:py-10 bg-slate-50">
+    <section class="py-6 md:py-8 bg-slate-50">
         <div class="container mx-auto px-4">
-            <div v-if="products && products.data && products.data.length > 0">
+            
+            <div class="mb-10">
+                <div class="flex justify-center flex-wrap gap-2">
+                    <button
+                        @click="filterByCategory('all')"
+                        :class="[
+                            'px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ease-in-out focus:outline-none',
+                            activeCategory === 'all'
+                                ? 'bg-yellow-500 text-white shadow'
+                                : 'bg-white text-gray-600 hover:bg-gray-100 border'
+                        ]"
+                    >
+                        Semua Kategori
+                    </button>
+                    <button
+                        v-for="category in productCategories"
+                        :key="category.id"
+                        @click="filterByCategory(category.slug)"
+                        :class="[
+                            'px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ease-in-out focus:outline-none',
+                            activeCategory === category.slug
+                                ? 'bg-yellow-500 text-white shadow'
+                                : 'bg-white text-gray-600 hover:bg-gray-100 border'
+                        ]"
+                    >
+                        {{ category.name }}
+                    </button>
+                </div>
+            </div>
+            <div v-if="products.data.length > 0">
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                     <ProductCard
                         v-for="product in products.data"
                         :key="product.id"
                         :product="product" />
                 </div>
-
                 <Pagination :links="products.links" class="mt-12" />
-
             </div>
-            <div v-else class="text-center py-5">
-              
-                <h3 class="mt-2 text-2xl font-semibold text-gray-800 dark:text-black">Belum Ada Produksi</h3>
-                <p class="mt-1 text-black-300">
-                    Saat ini belum ada produk yang tersedia. Silakan kembali lagi nanti!
+            
+            <div v-else class="text-center py-16 bg-white rounded-lg shadow-sm">
+                <h3 class="mt-2 text-2xl font-semibold text-gray-800">Produk Tidak Ditemukan</h3>
+                <p class="mt-2 text-gray-500">
+                    Saat ini belum ada produk yang cocok dengan filter yang Anda pilih.
                 </p>
+                <button @click="filterByCategory('all')" class="mt-6 text-blue-600 font-semibold hover:underline">
+                    Lihat Semua Produk
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-slate-50 dark:bg-slate-900">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">
-                Siap Mengubah Bisnis Anda?
-            </h2>
-            <p class="text-yellow-100 dark:text-yellow-200 text-lg mb-8 max-w-xl mx-auto">
-                Diskusikan kebutuhan Anda dengan tim ahli kami dan temukan solusi SaaS terbaik.
-            </p>
-            <Link href="/contact" class="bg-white hover:bg-gray-100 text-yellow-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-150 ease-in-out transform hover:scale-105">
-                Hubungi Kami
-            </Link>
-        </div>
-    </section>
-
-</template>
+    </template>

@@ -72,11 +72,14 @@ const imageUrl = computed(() => {
         </div>
 
         <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2 truncate" :title="product.title">
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white truncate" :title="product.title">
                 <Link :href="route('products.show', product.slug)" class="hover:text-indigo-600 dark:hover:text-indigo-400">
                     {{ product.title }}
                 </Link>
             </h3>
+            <span class="text-xs text-yellow-400 mb-2">
+                {{ product.category.name }}
+            </span>
 
             <p class="text-gray-600 dark:text-slate-300 text-sm mb-4 flex-grow line-clamp-3" :title="product.short_description">
                 {{ product.short_description }}
